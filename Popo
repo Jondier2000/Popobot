@@ -1,0 +1,11 @@
+bot.on('voiceStateUpdate', (oldMember, newMember) => {
+  const newUserChannel = newMember.voice.channelID
+  const oldUserChannel = oldMember.voice.channelID
+  const textChannel = message.guild.channels.cache.get('712677731023716452')
+
+  if(newUserChannel === '712677767333937284') {
+    textChannel.send(`${newMember.user.username} (${newMember.id}) has joined the channel`)
+  } else if (oldUserChannel === '712677767333937284' && newUserChannel !== '712677767333937284') {
+    textChannel.send(`${newMember.user.username} (${newMember.id}) has left the channel`)
+  }
+})
